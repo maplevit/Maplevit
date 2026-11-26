@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>MapleVit — فروشگاه مپل‌ویت | Canadian Vitamins &amp; Supplements</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #faf7f3;
+        --surface: #ffffff;
+        --surface-2: #f3ede6;
+        --ink: #26211c;
+        --muted: #71665a;
+        --line: #e6dbcf;
+        --accent: #b3352b;
+        --accent-dark: #8f2a22;
+        --accent-soft: #fbeae8;
+        --green: #1e7a46;
+        --green-soft: #e5f3ea;
+        --amber: #9a6a12;
+        --amber-soft: #faf0da;
+        --shadow: 0 1px 3px rgba(60, 40, 20, .08), 0 8px 24px rgba(60, 40, 20, .06);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #171410;
+          --surface: #221e19;
+          --surface-2: #2b261f;
+          --ink: #f1e9dd;
+          --muted: #b3a693;
+          --line: #3b342a;
+          --accent: #e0685e;
+          --accent-dark: #e0685e;
+          --accent-soft: #3d2320;
+          --green: #5cc98a;
+          --green-soft: #1e3325;
+          --amber: #e0aa4e;
+          --amber-soft: #38300f;
+          --shadow: 0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      button, input, select, textarea { font: inherit; color: inherit; }
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+      a { color: var(--accent); }
+
+      .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+
+      /* ---------- Header ---------- */
+      header.site {
+        position: sticky; top: 0; z-index: 40;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .header-in { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+      .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+      .brand-mark {
+        width: 40px; height: 40px; flex: none; border-radius: 11px;
+        background: var(--accent); color: #fff;
+        display: grid; place-items: center;
+      }
+      .brand-mark svg { width: 24px; height: 24px; }
+      .brand-name { font-weight: 800; font-size: 1.15rem; line-height: 1.2; }
+      .brand-sub { font-size: .78rem; color: var(--muted); line-height: 1.3; }
+      .header-actions { margin-inline-start: auto; display: flex; align-items: center; gap: 8px; }
+      .lang-toggle {
+        display: inline-flex; border: 1px solid var(--line); border-radius: 999px;
+        background: var(--surface); padding: 3px; gap: 2px;
+      }
+      .lang-toggle button {
+        border: 0; background: transparent; cursor: pointer; border-radius: 999px;
+        padding: 4px 14px; font-weight: 700; font-size: .9rem; min-height: 2.25rem;
+      }
+      .lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+      .cart-btn {
+        position: relative; display: inline-flex; align-items: center; gap: 8px;
+        background: var(--ink); color: var(--bg); border: 0; cursor: pointer;
+        border-radius: 999px; padding: 6px 16px; font-weight: 700; min-height: 2.5rem;
+      }
+      .cart-btn svg { width: 19px; height: 19px; }
+      .cart-count {
+        background: var(--accent); color: #fff; border-radius: 999px;
+        min-width: 22px; height: 22px; padding: 0 6px; display: inline-grid; place-items: center;
+        font-size: .8rem; font-weight: 800;
+      }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 30px 0 8px; }
+      .hero h1 { font-size: clamp(1.55rem, 4.5vw, 2.4rem); font-weight: 800; margin: 0 0 8px; line-height: 1.35; }
+      .hero h1 .leaf { color: var(--accent); }
+      .hero p.lede { color: var(--muted); max-width: 62ch; margin: 0 0 18px; font-size: 1.02rem; }
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 6px 0 4px; }
+      .step {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+        padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start;
+      }
+      .step-num {
+        flex: none; width: 28px; height: 28px; border-radius: 50%;
+        background: var(--accent-soft); color: var(--accent);
+        display: grid; place-items: center; font-weight: 800; font-size: .9rem;
+      }
+      .step b { display: block; font-size: .95rem; }
+      .step span { font-size: .83rem; color: var(--muted); }
+      @media (max-width: 640px) {
+        .steps { grid-template-columns: 1fr; }
+        .header-in { flex-wrap: wrap; row-gap: 8px; }
+        .brand { flex: 1 1 100%; }
+        .header-actions { width: 100%; justify-content: space-between; margin-inline-start: 0; }
+        .toolbar { position: static; }
+      }
+
+      /* ---------- Toolbar ---------- */
+      .toolbar { position: sticky; top: 65px; z-index: 30; padding: 12px 0 10px; background: var(--bg); }
+      .search-row { display: flex; gap: 8px; }
+      .search-box { position: relative; flex: 1; }
+      .search-box svg {
+        position: absolute; inset-inline-start: 12px; top: 50%; transform: translateY(-50%);
+        width: 18px; height: 18px; color: var(--muted); pointer-events: none;
+      }
+      .search-box input {
+        width: 100%; padding: 10px 14px; padding-inline-start: 40px;
+        border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
+        min-height: 2.75rem;
+      }
+      .search-box input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .chip {
+        border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+        border-radius: 999px; padding: 6px 14px; cursor: pointer; font-weight: 600;
+        font-size: .9rem; min-height: 2.25rem;
+      }
+      .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+      .chip .n { opacity: .65; font-size: .8em; font-weight: 500; }
+
+      /* ---------- Product grid ---------- */
+      .grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 14px; padding: 8px 0 30px;
+      }
+      .card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+        padding: 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--shadow);
+      }
+      .card-top { display: flex; align-items: flex-start; gap: 10px; }
+      .brand-tag {
+        font-size: .72rem; font-weight: 700; letter-spacing: .02em;
+        background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);
+        border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+      }
+      .cat-tag { font-size: .75rem; color: var(--muted); margin-inline-start: auto; white-space: nowrap; }
+      .card h3 { margin: 0; font-size: 1.06rem; font-weight: 800; line-height: 1.45; }
+      .card .alt-name { color: var(--muted); font-size: .85rem; line-height: 1.4; }
+      .card .size { font-size: .85rem; color: var(--muted); }
+      .card .size b { color: var(--ink); font-weight: 600; }
+      .price-row {
+        display: flex; align-items: baseline; gap: 8px; margin-top: 2px;
+        border-top: 1px dashed var(--line); padding-top: 10px;
+      }
+      .price-label { font-weight: 700; font-size: .92rem; }
+      .price-blank {
+        flex: 1; border-bottom: 2px dotted var(--muted); height: 1.1em; min-width: 60px;
+        opacity: .55;
+      }
+      .price-unit { font-weight: 700; font-size: .92rem; }
+      .add-row { display: flex; gap: 8px; align-items: stretch; margin-top: 4px; }
+      .qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+      .qty button {
+        width: 38px; min-height: 2.5rem; border: 0; background: var(--surface-2); cursor: pointer;
+        font-size: 1.1rem; font-weight: 800; line-height: 1;
+      }
+      .qty output { min-width: 34px; text-align: center; font-weight: 800; }
+      .add-btn {
+        flex: 1; background: var(--accent); color: #fff; border: 0; border-radius: 10px;
+        font-weight: 800; cursor: pointer; padding: 8px 10px; min-height: 2.5rem;
+      }
+      .add-btn:hover { background: var(--accent-dark); }
+      .add-btn.added { background: var(--green); }
+
+      /* details / certifications */
+      .details-btn {
+        margin-top: 6px; border: 1px solid var(--line); background: var(--surface-2);
+        border-radius: 10px; padding: 8px 12px; cursor: pointer; font-weight: 700;
+        display: flex; align-items: center; gap: 8px; width: 100%; text-align: start;
+        min-height: 2.5rem; font-size: .92rem;
+      }
+      .details-btn svg { width: 17px; height: 17px; flex: none; }
+      .details-btn .chev { margin-inline-start: auto; transition: transform .2s; }
+      .details-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+      .details-panel { display: none; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 12px; }
+      .details-panel.open { display: block; }
+      .details-panel h4 {
+        margin: 14px 0 6px; font-size: .82rem; font-weight: 800; color: var(--muted);
+        text-transform: uppercase; letter-spacing: .04em;
+      }
+      .details-panel h4:first-child { margin-top: 0; }
+      [dir="rtl"] .details-panel h4 { letter-spacing: 0; }
+      .details-panel p.desc { margin: 0; font-size: .93rem; }
+      .cert-list { display: flex; flex-direction: column; gap: 6px; }
+      .cert {
+        display: flex; gap: 8px; align-items: flex-start; font-size: .9rem;
+        border-radius: 10px; padding: 8px 10px;
+      }
+      .cert svg { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+      .cert.ok { background: var(--green-soft); color: var(--ink); }
+      .cert.ok svg { color: var(--green); }
+      .cert.pending { background: var(--amber-soft); border: 1px dashed var(--amber); color: var(--ink); }
+      .cert.pending svg { color: var(--amber); }
+      .cert b { font-weight: 800; }
+      .cert .npn-num { font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; }
+      .source-line { font-size: .9rem; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      .source-line svg { width: 16px; height: 16px; flex: none; }
+      .source-pending { color: var(--muted); font-size: .88rem; font-style: italic; }
+      .empty-msg { text-align: center; color: var(--muted); padding: 40px 0; grid-column: 1 / -1; }
+
+      /* ---------- Cart / order ---------- */
+      .order-section { padding: 10px 0 50px; }
+      .order-card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+        box-shadow: var(--shadow); padding: 20px;
+      }
+      .order-card h2 { margin: 0 0 4px; font-size: 1.3rem; font-weight: 800; }
+      .order-card .sub { color: var(--muted); margin: 0 0 16px; font-size: .93rem; }
+      .cart-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+      .cart-item {
+        display: flex; align-items: center; gap: 10px; border: 1px solid var(--line);
+        border-radius: 12px; padding: 8px 12px; background: var(--surface-2);
+      }
+      .cart-item .nm { flex: 1; min-width: 0; font-weight: 600; font-size: .94rem; }
+      .cart-item .nm small { display: block; color: var(--muted); font-weight: 500; }
+      .cart-item .qty { background: var(--surface); }
+      .cart-item .qty button { width: 32px; min-height: 2.25rem; }
+      .rm-btn {
+        border: 0; background: transparent; color: var(--accent); cursor: pointer;
+        font-weight: 700; padding: 6px 8px; min-height: 2.25rem; border-radius: 8px;
+      }
+      .cart-empty { color: var(--muted); text-align: center; padding: 18px 0; border: 1px dashed var(--line); border-radius: 12px; }
+      form.order-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      form.order-form .full { grid-column: 1 / -1; }
+      .field label { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 5px; }
+      .field label .req { color: var(--accent); }
+      .field input, .field select, .field textarea {
+        width: 100%; border: 1px solid var(--line); border-radius: 10px;
+        background: var(--surface); padding: 9px 12px; min-height: 2.75rem;
+      }
+      .field textarea { min-height: 4.5rem; resize: vertical; }
+      .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+      @media (max-width: 640px) { form.order-form { grid-template-columns: 1fr; } }
+      .order-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+      .submit-btn {
+        background: var(--accent); color: #fff; border: 0; border-radius: 12px;
+        font-weight: 800; padding: 12px 22px; cursor: pointer; min-height: 3rem; font-size: 1rem;
+        display: inline-flex; align-items: center; gap: 8px;
+      }
+      .submit-btn:hover { background: var(--accent-dark); }
+      .copy-btn {
+        background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 12px;
+        font-weight: 700; padding: 12px 18px; cursor: pointer; min-height: 3rem;
+        display: inline-flex; align-items: center; gap: 8px;
+      }
+      .form-error { color: var(--accent); font-weight: 700; margin-top: 10px; display: none; }
+      .form-note { color: var(--muted); font-size: .86rem; margin-top: 12px; }
+
+      footer.site { border-top: 1px solid var(--line); padding: 22px 0 34px; color: var(--muted); font-size: .9rem; }
+      footer.site .cols { display: flex; gap: 24px; flex-wrap: wrap; }
+      footer.site b { color: var(--ink); }
+      .toast {
+        position: fixed; bottom: 18px; inset-inline-start: 50%; transform: translateX(50%) translateY(20px);
+        background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px;
+        font-weight: 700; opacity: 0; pointer-events: none; transition: all .25s; z-index: 60;
+        max-width: calc(100vw - 32px); text-align: center;
+      }
+      [dir="ltr"] .toast { transform: translateX(-50%) translateY(20px); }
+      .toast.show { opacity: 1; transform: translateX(50%) translateY(0); }
+      [dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .toast, .details-btn .chev { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap header-in">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.8l1.7 4.1 3.4-2.4-1 4 4.3-.6-2.9 3.2 4 1.6-4.2 1.3 2.3 3.7-4-1.7-.4 4.4L12 15.6l-3.2 3.8-.4-4.4-4 1.7L6.7 13 2.5 11.7l4-1.6L3.6 6.9l4.3.6-1-4 3.4 2.4L12 1.8zM11 15h2l.6 6.4h-3.2L11 15z"/></svg>
+          </div>
+          <div>
+            <div class="brand-name">MapleVit <span style="color:var(--accent)">·</span> <span data-i18n="brandFa">مپل‌ویت</span></div>
+            <div class="brand-sub" data-i18n="brandSub">ویتامین و مکمل اصل کانادا — ارسال به ایران و کانادا</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" aria-label="Language / زبان">
+            <button type="button" id="lang-fa" aria-pressed="true">فارسی</button>
+            <button type="button" id="lang-en" aria-pressed="false">EN</button>
+          </div>
+          <button type="button" class="cart-btn" id="cart-jump">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+            <span data-i18n="cart">سبد سفارش</span>
+            <span class="cart-count" id="cart-count">۰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1 data-i18n="heroTitle">مکمل‌های اصل <span class="leaf">کانادا</span>، مستقیم از کاستکو تا خانه شما</h1>
+        <p class="lede" data-i18n="heroLede">همه محصولات این فروشگاه از قفسه داروخانه کاستکوی کانادا (Costco Canada) تهیه می‌شوند — اصل و پلمب. توضیحات، تأییدیه‌های بهداشتی و لینک منبع رسمی هر محصول در بخش «جزئیات و اصالت» خودش آمده است. سفارشتان را همین‌جا ثبت کنید؛ برای هماهنگی پرداخت و ارسال با شما تماس می‌گیریم.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">۱</div><div><b data-i18n="step1t">محصول را انتخاب کنید</b><span data-i18n="step1d">به سبد سفارش اضافه کنید و تعداد را مشخص کنید.</span></div></div>
+          <div class="step"><div class="step-num">۲</div><div><b data-i18n="step2t">فرم سفارش را پر کنید</b><span data-i18n="step2d">نام و شماره تماس‌تان را بنویسید و سفارش را بفرستید.</span></div></div>
+          <div class="step"><div class="step-num">۳</div><div><b data-i18n="step3t">ما تماس می‌گیریم</b><span data-i18n="step3d">قیمت نهایی به تومان و هزینه ارسال را تأیید و ارسال می‌کنیم.</span></div></div>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="search-row">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="search" data-i18n-ph="searchPh" placeholder="جستجوی محصول… مثلاً امگا ۳" aria-label="Search" />
+          </div>
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Categories"></div>
+      </div>
+
+      <section class="grid" id="grid" aria-live="polite"></section>
+
+      <section class="order-section" id="order">
+        <div class="order-card">
+          <h2 data-i18n="orderTitle">ثبت سفارش</h2>
+          <p class="sub" data-i18n="orderSub">سفارش شما با ایمیل به ما می‌رسد و برای تأیید قیمت (تومان) و هماهنگی ارسال، با شما تماس می‌گیریم.</p>
+          <div class="cart-items" id="cart-items"></div>
+          <form class="order-form" id="order-form" novalidate>
+            <div class="field">
+              <label for="f-name"><span data-i18n="fName">نام و نام خانوادگی</span> <span class="req">*</span></label>
+              <input id="f-name" type="text" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="f-phone"><span data-i18n="fPhone">شماره تماس (موبایل / واتس‌اپ)</span> <span class="req">*</span></label>
+              <input id="f-phone" type="tel" autocomplete="tel" dir="ltr" style="text-align:end" />
+            </div>
+            <div class="field">
+              <label for="f-country" data-i18n="fCountry">کشور مقصد</label>
+              <select id="f-country">
+                <option value="iran" data-i18n="cIran">ایران</option>
+                <option value="canada" data-i18n="cCanada">کانادا</option>
+                <option value="other" data-i18n="cOther">کشور دیگر</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-city" data-i18n="fCity">شهر</label>
+              <input id="f-city" type="text" autocomplete="address-level2" />
+            </div>
+            <div class="field full">
+              <label for="f-note" data-i18n="fNote">توضیحات (اختیاری)</label>
+              <textarea id="f-note"></textarea>
+            </div>
+          </form>
+          <div class="order-actions">
+            <button type="button" class="submit-btn" id="submit-order">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span data-i18n="submit">ارسال سفارش با ایمیل</span>
+            </button>
+            <button type="button" class="copy-btn" id="copy-order">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+              <span data-i18n="copyOrder">کپی متن سفارش</span>
+            </button>
+          </div>
+          <p class="form-error" id="form-error"></p>
+          <p class="form-note" data-i18n="formNote">قیمت‌ها به تومان به‌زودی روی سایت درج می‌شود؛ تا آن زمان قیمت هر سفارش هنگام تماس تأیید می‌شود. ایمیل سفارش‌ها: info@maplevit.com</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site">
+      <div class="wrap cols">
+        <div><b>MapleVit · maplevit.com</b><br /><span data-i18n="footAbout">فروش مکمل و ویتامین اصل کانادا (کاستکو) با ارسال به ایران و داخل کانادا.</span></div>
+        <div><b data-i18n="footContact">تماس</b><br /><a href="mailto:info@maplevit.com">info@maplevit.com</a></div>
+        <div><b data-i18n="footAuth">اصالت کالا</b><br /><span data-i18n="footAuthText">برای هر محصول، توضیحات، تأییدیه‌های بهداشتی و لینک منبع رسمی در بخش «جزئیات و اصالت» همان محصول آمده است.</span></div>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+      /* =============== i18n strings =============== */
+      var STR = {
+        fa: {
+          brandFa: "مپل‌ویت",
+          brandSub: "ویتامین و مکمل اصل کانادا — ارسال به ایران و کانادا",
+          cart: "سبد سفارش",
+          heroTitle: "مکمل‌های اصل <span class=\"leaf\">کانادا</span>، مستقیم از کاستکو تا خانه شما",
+          heroLede: "همه محصولات این فروشگاه از قفسه داروخانه کاستکوی کانادا (Costco Canada) تهیه می‌شوند — اصل و پلمب. توضیحات، تأییدیه‌های بهداشتی و لینک منبع رسمی هر محصول در بخش «جزئیات و اصالت» خودش آمده است. سفارشتان را همین‌جا ثبت کنید؛ برای هماهنگی پرداخت و ارسال با شما تماس می‌گیریم.",
+          step1t: "محصول را انتخاب کنید", step1d: "به سبد سفارش اضافه کنید و تعداد را مشخص کنید.",
+          step2t: "فرم سفارش را پر کنید", step2d: "نام و شماره تماس‌تان را بنویسید و سفارش را بفرستید.",
+          step3t: "ما تماس می‌گیریم", step3d: "قیمت نهایی به تومان و هزینه ارسال را تأیید و ارسال می‌کنیم.",
+          searchPh: "جستجوی محصول… مثلاً امگا ۳",
+          all: "همه",
+          empty: "محصولی با این جستجو پیدا نشد.",
+          sizeWord: "بسته‌بندی:",
+          price: "قیمت:",
+          toman: "تومان",
+          add: "افزودن به سبد",
+          added: "✓ اضافه شد",
+          detailsBtn: "توضیحات، تأییدیه‌ها و منبع محصول",
+          descHead: "توضیحات",
+          certHead: "تأییدیه‌ها و مجوزها",
+          sourceHead: "منبع محصول",
+          sourceLink: "مشاهده صفحه رسمی محصول",
+          sourcePending: "لینک صفحه رسمی محصول در دست تکمیل است و به‌زودی اضافه می‌شود.",
+          npnOk: "Health Canada — شماره محصول طبیعی (NPN)",
+          npnPending: "Health Canada — شماره محصول طبیعی (NPN): در دست تکمیل؛ شماره دقیق روی برچسب محصول درج شده و به‌زودی اینجا ثبت می‌شود.",
+          dinPending: "Health Canada — شماره شناسایی دارو (DIN): در دست تکمیل؛ شماره دقیق روی برچسب محصول درج شده و به‌زودی اینجا ثبت می‌شود.",
+          formulaCert: "Health Canada — شیرخشک نوزاد در کانادا تحت مقررات سخت‌گیرانه مواد غذایی و دارویی Health Canada تولید و عرضه می‌شود (شیرخشک‌ها به‌جای NPN، تحت مقررات غذایی کانادا ثبت می‌شوند).",
+          informedChoice: "Informed Choice (آمریکا) — آزمایش منظم برای مواد ممنوعه ورزشی (تأییدیه روی برچسب محصول)",
+          orderTitle: "ثبت سفارش",
+          orderSub: "سفارش شما با ایمیل به ما می‌رسد و برای تأیید قیمت (تومان) و هماهنگی ارسال، با شما تماس می‌گیریم.",
+          cartEmpty: "سبد سفارش خالی است — از لیست بالا محصول اضافه کنید.",
+          fName: "نام و نام خانوادگی", fPhone: "شماره تماس (موبایل / واتس‌اپ)",
+          fCountry: "کشور مقصد", cIran: "ایران", cCanada: "کانادا", cOther: "کشور دیگر",
+          fCity: "شهر", fNote: "توضیحات (اختیاری)",
+          submit: "ارسال سفارش با ایمیل", copyOrder: "کپی متن سفارش",
+          formNote: "قیمت‌ها به تومان به‌زودی روی سایت درج می‌شود؛ تا آن زمان قیمت هر سفارش هنگام تماس تأیید می‌شود. ایمیل سفارش‌ها: info@maplevit.com",
+          footAbout: "فروش مکمل و ویتامین اصل کانادا (کاستکو) با ارسال به ایران و داخل کانادا.",
+          footContact: "تماس", footAuth: "اصالت کالا",
+          footAuthText: "برای هر محصول، توضیحات، تأییدیه‌های بهداشتی و لینک منبع رسمی در بخش «جزئیات و اصالت» همان محصول آمده است.",
+          remove: "حذف",
+          errEmpty: "اول دست‌کم یک محصول به سبد سفارش اضافه کنید.",
+          errFields: "نام و شماره تماس را کامل وارد کنید.",
+          copied: "متن سفارش کپی شد ✓",
+          copyFail: "کپی نشد — متن سفارش را از ایمیل ارسال کنید.",
+          mailSubject: "سفارش جدید از سایت MapleVit",
+          mailItems: "اقلام سفارش:",
+          mailName: "نام:", mailPhone: "تلفن:", mailCountry: "کشور:", mailCity: "شهر:", mailNote: "توضیحات:",
+          countryNames: { iran: "ایران", canada: "کانادا", other: "سایر" }
+        },
+        en: {
+          brandFa: "MapleVit",
+          brandSub: "Original Canadian vitamins & supplements — shipping to Iran & Canada",
+          cart: "Order cart",
+          heroTitle: "Original <span class=\"leaf\">Canadian</span> supplements, straight from Costco to your door",
+          heroLede: "Every product in this shop is sourced from Costco Canada's pharmacy shelves — genuine and sealed. Each product's description, health certifications and official source link are listed in its own details section. Place your order here and we will contact you to arrange payment and delivery.",
+          step1t: "Pick your products", step1d: "Add them to the order cart and set quantities.",
+          step2t: "Fill in the order form", step2d: "Leave your name and phone number and send the order.",
+          step3t: "We contact you", step3d: "We confirm the final price in Toman plus shipping, then dispatch.",
+          searchPh: "Search products… e.g. Omega-3 or ⁦ویتامین⁩",
+          all: "All",
+          empty: "No products match your search.",
+          sizeWord: "Pack size:",
+          price: "Price:",
+          toman: "Toman",
+          add: "Add to cart",
+          added: "✓ Added",
+          detailsBtn: "Description, certifications & source",
+          descHead: "Description",
+          certHead: "Certifications & approvals",
+          sourceHead: "Product source",
+          sourceLink: "View the official product page",
+          sourcePending: "The official product-page link is being completed and will be added soon.",
+          npnOk: "Health Canada — Natural Product Number (NPN)",
+          npnPending: "Health Canada — Natural Product Number (NPN): being completed; the exact number is printed on the product label and will be listed here soon.",
+          dinPending: "Health Canada — Drug Identification Number (DIN): being completed; the exact number is printed on the product label and will be listed here soon.",
+          formulaCert: "Health Canada — infant formula sold in Canada is made and sold under Health Canada's strict Food and Drug Regulations (formulas are regulated as food rather than by NPN).",
+          informedChoice: "Informed Choice (USA) — regularly tested for banned substances (mark printed on the product label)",
+          orderTitle: "Place your order",
+          orderSub: "Your order reaches us by email; we will contact you to confirm the price (in Toman) and arrange delivery.",
+          cartEmpty: "Your order cart is empty — add products from the list above.",
+          fName: "Full name", fPhone: "Phone (mobile / WhatsApp)",
+          fCountry: "Destination country", cIran: "Iran", cCanada: "Canada", cOther: "Another country",
+          fCity: "City", fNote: "Notes (optional)",
+          submit: "Send order by email", copyOrder: "Copy order text",
+          formNote: "Toman prices will be listed on the site soon; until then each order's price is confirmed when we call you. Orders email: info@maplevit.com",
+          footAbout: "Original Canadian supplements & vitamins (Costco) shipped to Iran and within Canada.",
+          footContact: "Contact", footAuth: "Authenticity",
+          footAuthText: "Every product carries its description, health certifications and an official source link in its “Details & authenticity” section.",
+          remove: "Remove",
+          errEmpty: "Add at least one product to the order cart first.",
+          errFields: "Please fill in your name and phone number.",
+          copied: "Order text copied ✓",
+          copyFail: "Copy failed — please send the order by email instead.",
+          mailSubject: "New order from the MapleVit website",
+          mailItems: "Order items:",
+          mailName: "Name:", mailPhone: "Phone:", mailCountry: "Country:", mailCity: "City:", mailNote: "Notes:",
+          countryNames: { iran: "Iran", canada: "Canada", other: "Other" }
+        }
+      };
+
+      /* =============== Categories =============== */
+      var CATS = [
+        { id: "multi",   fa: "مولتی‌ویتامین‌ها",        en: "Multivitamins" },
+        { id: "vit",     fa: "ویتامین‌ها",               en: "Vitamins" },
+        { id: "min",     fa: "مواد معدنی",               en: "Minerals" },
+        { id: "omega",   fa: "امگا ۳ و سلامت قلب",       en: "Omega-3 & Heart" },
+        { id: "joint",   fa: "استخوان و مفاصل",          en: "Bones & Joints" },
+        { id: "digest",  fa: "گوارش و پروبیوتیک",        en: "Digestive & Probiotics" },
+        { id: "otc",     fa: "مسکن، سرماخوردگی و آلرژی", en: "Pain, Cold & Allergy" },
+        { id: "beauty",  fa: "خواب، زیبایی و چشم",       en: "Sleep, Beauty & Eyes" },
+        { id: "sport",   fa: "ورزشی و کراتین",           en: "Sports & Creatine" },
+        { id: "kids",    fa: "کودکان و نوزاد",           en: "Kids & Baby" }
+      ];
+
+      /* =============== Products ===============
+         descFa/descEn: short description.
+         npn: confirmed Health Canada NPN (from the product's costco.ca page) — null = not yet confirmed.
+         url: verified official product page (costco.ca) — null = link still being completed. */
+      var PRODUCTS = [
+        /* ---- Multivitamins ---- */
+        { id: "ks-men-multi", cat: "multi", brand: "Kirkland Signature", en: "Men Multivitamin", fa: "مولتی‌ویتامین آقایان کرکلند", size: "365 tablets", npn: "80027453", url: "https://www.costco.ca/p/-/kirkland-signature-men-multivitamin,-365-tablets/100692114",
+          descEn: "A complete daily multivitamin and multimineral formula made for men. One tablet a day — a full one-year supply in a single bottle.",
+          descFa: "فرمول کامل روزانه ویتامین‌ها و مواد معدنی مخصوص آقایان؛ روزی یک قرص و یک بطری برای یک سال کامل کافی است." },
+        { id: "ks-women-multi", cat: "multi", brand: "Kirkland Signature", en: "Women Multivitamin", fa: "مولتی‌ویتامین بانوان کرکلند", size: "365 tablets", npn: "80027467", url: "https://www.costco.ca/p/-/kirkland-signature-women-multivitamin-365-tablets/100702605",
+          descEn: "A complete daily multivitamin and multimineral formula made for women, with iron and folate. One tablet a day, a full year per bottle.",
+          descFa: "فرمول کامل روزانه مخصوص بانوان، همراه با آهن و فولات؛ روزی یک قرص و یک بطری برای یک سال کامل." },
+        { id: "ks-men50", cat: "multi", brand: "Kirkland Signature", en: "Men 50+ Multivitamin", fa: "مولتی‌ویتامین آقایان بالای ۵۰ سال کرکلند", size: "365 tablets", npn: null, url: "https://www.costco.ca/p/-/kirkland-signature-men-50-multivitamin-365-tablets/100683747?langId=-24",
+          descEn: "Multivitamin and multimineral formula tailored to men over 50, with added support for bones, eyes and heart. One tablet daily.",
+          descFa: "فرمول متناسب با نیاز آقایان بالای ۵۰ سال، با پشتیبانی بیشتر از استخوان، چشم و قلب؛ روزی یک قرص." },
+        { id: "ks-women50", cat: "multi", brand: "Kirkland Signature", en: "Women 50+ Multivitamin", fa: "مولتی‌ویتامین بانوان بالای ۵۰ سال کرکلند", size: "365 tablets", npn: null, url: null,
+          descEn: "Multivitamin and multimineral formula tailored to women over 50, with extra calcium and vitamin D for bone health. One tablet daily.",
+          descFa: "فرمول متناسب با نیاز بانوان بالای ۵۰ سال، با کلسیم و ویتامین D بیشتر برای سلامت استخوان؛ روزی یک قرص." },
+        { id: "ks-multi-gummies", cat: "multi", brand: "Kirkland Signature", en: "Adult Multivitamin Gummies", fa: "مولتی‌ویتامین پاستیلی بزرگسالان کرکلند", size: "250 gummies", npn: null, url: null,
+          descEn: "Fruit-flavoured gummy multivitamin for adults who prefer not to swallow tablets — the everyday essentials in a chewable form.",
+          descFa: "مولتی‌ویتامین پاستیلی با طعم میوه برای بزرگسالانی که قرص نمی‌خورند؛ ویتامین‌های ضروری روزانه در قالب جویدنی." },
+        { id: "centrum-men", cat: "multi", brand: "Centrum", en: "Centrum Men Multivitamin", fa: "مولتی‌ویتامین آقایان سنتروم", size: "", npn: null, url: null,
+          descEn: "Centrum's daily multivitamin for men, formulated to support energy, immunity and muscle function.",
+          descFa: "مولتی‌ویتامین روزانه سنتروم مخصوص آقایان، برای پشتیبانی از انرژی، سیستم ایمنی و عملکرد عضلات." },
+        { id: "centrum-women", cat: "multi", brand: "Centrum", en: "Centrum Women Multivitamin", fa: "مولتی‌ویتامین بانوان سنتروم", size: "", npn: null, url: null,
+          descEn: "Centrum's daily multivitamin for women, with iron and folate to support energy, immunity and healthy skin.",
+          descFa: "مولتی‌ویتامین روزانه سنتروم مخصوص بانوان، همراه با آهن و فولات برای انرژی، ایمنی و سلامت پوست." },
+        { id: "centrum-men50", cat: "multi", brand: "Centrum", en: "Centrum Men 50+ Multivitamin", fa: "مولتی‌ویتامین آقایان بالای ۵۰ سال سنتروم", size: "", npn: null, url: null,
+          descEn: "Centrum formula for men over 50, adjusted for heart, eye and bone health in later years.",
+          descFa: "فرمول سنتروم برای آقایان بالای ۵۰ سال، تنظیم‌شده برای سلامت قلب، چشم و استخوان." },
+        { id: "centrum-women50", cat: "multi", brand: "Centrum", en: "Centrum Women 50+ Multivitamin", fa: "مولتی‌ویتامین بانوان بالای ۵۰ سال سنتروم", size: "", npn: null, url: null,
+          descEn: "Centrum formula for women over 50, with added calcium and vitamin D for bones plus support for eyes and heart.",
+          descFa: "فرمول سنتروم برای بانوان بالای ۵۰ سال، با کلسیم و ویتامین D بیشتر برای استخوان و پشتیبانی از چشم و قلب." },
+
+        /* ---- Vitamins ---- */
+        { id: "ks-d3", cat: "vit", brand: "Kirkland Signature", en: "Vitamin D3 1000 IU", fa: "ویتامین D3 کرکلند (۱۰۰۰ واحد)", size: "2 × 360 tablets", item: "803934", npn: "80000393", url: "https://www.costco.ca/p/-/kirkland-signature-vitamin-d3-1,000-iu,-2-x-360-tablets/100322373",
+          descEn: "Vitamin D3 1,000 IU (25 mcg) — an essential vitamin for the maintenance of bones and teeth that also supports immune function. GMO-free.",
+          descFa: "ویتامین D3 با دوز ۱۰۰۰ واحد (۲۵ میکروگرم)؛ ویتامینی ضروری برای حفظ سلامت استخوان و دندان و پشتیبانی از سیستم ایمنی. بدون GMO." },
+        { id: "jam-d3", cat: "vit", brand: "Jamieson", en: "Vitamin D3 1000 IU", fa: "ویتامین D3 جمیسون (۱۰۰۰ واحد)", size: "2 × 375 tablets", npn: "80000436", url: "https://www.costco.ca/p/-/jamieson-vitamin-d3-1000-iu-2-x-375-tablets/100422788?langId=-24",
+          descEn: "Formulated with Quali-D, a premium natural-source D3. Helps the body absorb calcium and supports strong bones, teeth and immune health.",
+          descFa: "ساخته‌شده با Quali-D، ویتامین D3 طبیعی باکیفیت؛ به جذب کلسیم کمک می‌کند و از استخوان، دندان و سیستم ایمنی پشتیبانی می‌کند." },
+        { id: "ks-c1000", cat: "vit", brand: "Kirkland Signature", en: "Vitamin C 1000 mg Timed Release", fa: "ویتامین C کرکلند ۱۰۰۰ آهسته‌رهش", size: "500 tablets", npn: "80021505", url: "https://www.costco.ca/p/-/kirkland-signature-timed-release-vitamin-c-1000-mg-500-tablets/100850846",
+          descEn: "Timed-release vitamin C 1,000 mg with 40 mg of rose hips — released gradually through the day. An antioxidant that supports immune health and collagen formation.",
+          descFa: "ویتامین C هزار میلی‌گرم آهسته‌رهش همراه با گل سرخ (رز هیپس)؛ در طول روز به‌تدریج آزاد می‌شود. آنتی‌اکسیدانی برای پشتیبانی از سیستم ایمنی و ساخت کلاژن." },
+        { id: "jam-c-zinc", cat: "vit", brand: "Jamieson", en: "Vitamin C + Zinc Chewable", fa: "ویتامین C + زینک جویدنی جمیسون", size: "", npn: null, url: null,
+          descEn: "Chewable vitamin C with zinc in a tangy orange flavour — everyday immune support without swallowing tablets.",
+          descFa: "ویتامین C همراه با زینک، به‌صورت قرص جویدنی با طعم پرتقال؛ پشتیبانی روزانه از سیستم ایمنی بدون نیاز به بلعیدن قرص." },
+        { id: "ester-c", cat: "vit", brand: "Ester-C", en: "Ester-C Vitamin C 1000 mg", fa: "استر-سی ویتامین C ۱۰۰۰", size: "", npn: null, url: null,
+          descEn: "A gentle, non-acidic form of vitamin C that is easier on the stomach, for daily immune support.",
+          descFa: "نوع ملایم و غیراسیدی ویتامین C که برای معده راحت‌تر است؛ مناسب پشتیبانی روزانه از سیستم ایمنی." },
+        { id: "ks-b12", cat: "vit", brand: "Kirkland Signature", en: "Vitamin B12 1200 mcg Sublingual", fa: "ویتامین B12 زیرزبانی کرکلند ۱۲۰۰ میکروگرم", size: "", npn: null, url: null,
+          descEn: "Sublingual B12 that dissolves under the tongue for fast absorption. Supports energy metabolism and red blood cell formation.",
+          descFa: "B12 زیرزبانی که زیر زبان حل می‌شود و سریع جذب می‌شود؛ از سوخت‌وساز انرژی و ساخت گلبول‌های قرمز پشتیبانی می‌کند." },
+        { id: "jam-b12", cat: "vit", brand: "Jamieson", en: "Vitamin B12 1200 mcg Timed Release", fa: "ویتامین B12 جمیسون ۱۲۰۰ آهسته‌رهش", size: "225 tablets", npn: null, url: null,
+          descEn: "Timed-release vitamin B12 1,200 mcg, released gradually through the day to support energy and the nervous system.",
+          descFa: "ویتامین B12 با دوز ۱۲۰۰ میکروگرم و رهش تدریجی در طول روز؛ برای پشتیبانی از انرژی و سیستم عصبی." },
+        { id: "ks-b100", cat: "vit", brand: "Kirkland Signature", en: "B100 Complex Timed Release", fa: "ب‌کمپلکس B100 کرکلند آهسته‌رهش", size: "300 tablets", npn: null, url: null,
+          descEn: "High-potency B-complex (all eight B vitamins at B100 strength) in a timed-release tablet, for energy metabolism and everyday stress support.",
+          descFa: "ب‌کمپلکس قوی (هر هشت ویتامین B با قدرت B100) به‌صورت آهسته‌رهش؛ برای سوخت‌وساز انرژی و پشتیبانی در برابر خستگی روزانه." },
+        { id: "ks-e400", cat: "vit", brand: "Kirkland Signature", en: "Vitamin E 400 IU", fa: "ویتامین E کرکلند ۴۰۰ واحد", size: "500 softgels", npn: null, url: null,
+          descEn: "Vitamin E 400 IU — a fat-soluble antioxidant that helps protect cells from oxidative damage and supports immune health.",
+          descFa: "ویتامین E با دوز ۴۰۰ واحد؛ آنتی‌اکسیدانی محلول در چربی که از سلول‌ها در برابر آسیب اکسیداتیو محافظت و از سیستم ایمنی پشتیبانی می‌کند." },
+        { id: "web-e400", cat: "vit", brand: "Webber Naturals", en: "Vitamin E 400 IU", fa: "ویتامین E وبر نچرالز ۴۰۰ واحد", size: "", npn: null, url: null,
+          descEn: "Vitamin E 400 IU from Webber Naturals — antioxidant support for immune health and healthy skin.",
+          descFa: "ویتامین E با دوز ۴۰۰ واحد از وبر نچرالز؛ پشتیبانی آنتی‌اکسیدانی برای سیستم ایمنی و سلامت پوست." },
+        { id: "jam-biotin", cat: "vit", brand: "Jamieson", en: "Biotin 10,000 mcg", fa: "بیوتین جمیسون ۱۰٬۰۰۰ میکروگرم", size: "150 softgels", npn: null, url: null,
+          descEn: "High-strength biotin 10,000 mcg to support healthy hair, skin and strong nails.",
+          descFa: "بیوتین قوی ۱۰٬۰۰۰ میکروگرم برای پشتیبانی از مو و پوست سالم و ناخن‌های محکم." },
+
+        /* ---- Minerals ---- */
+        { id: "ks-calcium", cat: "min", brand: "Kirkland Signature", en: "Calcium Citrate, Magnesium & Zinc with D3", fa: "کلسیم سیترات + منیزیم و زینک کرکلند (با D3)", size: "500 tablets", npn: null, url: null,
+          descEn: "Calcium citrate — the easily absorbed form — combined with magnesium, zinc and vitamin D3 for strong bones and teeth.",
+          descFa: "کلسیم سیترات (فرم با جذب آسان) همراه با منیزیم، زینک و ویتامین D3 برای استخوان و دندان‌های محکم." },
+        { id: "jam-calcium", cat: "min", brand: "Jamieson", en: "Calcium Magnesium + D3", fa: "کلسیم منیزیم + D3 جمیسون", size: "500 caplets", npn: null, url: null,
+          descEn: "Calcium and magnesium in one caplet, with vitamin D3 to help absorption — for bones, teeth and muscle function.",
+          descFa: "کلسیم و منیزیم در یک قرص، همراه با ویتامین D3 برای جذب بهتر؛ مناسب استخوان، دندان و عملکرد عضلات." },
+        { id: "web-mag-cit", cat: "min", brand: "Webber Naturals", en: "Magnesium Citrate 150 mg", fa: "منیزیم سیترات وبر نچرالز ۱۵۰ میلی‌گرم", size: "300 capsules", npn: "80005581", url: "https://www.costco.ca/p/-/webber-naturals-magnesium-citrate-150-mg-300-capsules/100107807?DM_PersistentCookieCreated=true&langId=-24",
+          descEn: "Magnesium in the high-absorption citrate form, 150 mg per capsule. Supports bone and teeth health, muscle function and heart health.",
+          descFa: "منیزیم به فرم سیترات با جذب بالا، ۱۵۰ میلی‌گرم در هر کپسول؛ از سلامت استخوان و دندان، عملکرد عضلات و قلب پشتیبانی می‌کند." },
+        { id: "web-mag-bis", cat: "min", brand: "Webber Naturals", en: "Magnesium Bisglycinate", fa: "منیزیم بیس‌گلیسینات وبر نچرالز", size: "", npn: null, url: null,
+          descEn: "Magnesium bisglycinate — a gentle, well-absorbed form that is easy on the stomach. Supports normal muscle function and relaxation.",
+          descFa: "منیزیم بیس‌گلیسینات؛ فرمی ملایم با جذب خوب که برای معده راحت است. از عملکرد طبیعی عضلات و آرامش بدن پشتیبانی می‌کند." },
+        { id: "ks-mag-gly", cat: "min", brand: "Kirkland Signature", en: "Magnesium Glycinate", fa: "منیزیم گلیسینات کرکلند", size: "", npn: null, url: null,
+          descEn: "Magnesium glycinate — the gentle form of magnesium, easy on the stomach, for muscle function and everyday relaxation.",
+          descFa: "منیزیم گلیسینات؛ فرم ملایم منیزیم که برای معده راحت است، برای عملکرد عضلات و آرامش روزانه." },
+        { id: "web-zinc", cat: "min", brand: "Webber Naturals", en: "Zinc Citrate", fa: "زینک سیترات وبر نچرالز", size: "400 tablets", npn: null, url: null,
+          descEn: "Zinc citrate in a large-value pack — supports a healthy immune system and healthy skin.",
+          descFa: "زینک سیترات در بسته اقتصادی بزرگ؛ از سیستم ایمنی سالم و سلامت پوست پشتیبانی می‌کند." },
+        { id: "jam-iron", cat: "min", brand: "Jamieson", en: "Gentle Iron 28 mg", fa: "آهن ملایم جمیسون ۲۸ میلی‌گرم", size: "", npn: null, url: null,
+          descEn: "Gentle iron 28 mg — a form designed to be easy on the stomach. Helps prevent iron-deficiency anemia and supports energy.",
+          descFa: "آهن ملایم ۲۸ میلی‌گرم با فرمولی راحت برای معده؛ به پیشگیری از کم‌خونی فقر آهن و پشتیبانی از انرژی کمک می‌کند." },
+
+        /* ---- Omega-3 & heart ---- */
+        { id: "ks-omega-super", cat: "omega", brand: "Kirkland Signature", en: "Super Concentrate Omega-3 Fish Oil 1300 mg", fa: "امگا ۳ غلیظ روغن ماهی کرکلند ۱۳۰۰ میلی‌گرم", size: "330 softgels", npn: "80121565", url: "https://www.costco.ca/p/-/kirkland-signature-super-concentrate-omega-3-fish-oil-330-softgels/4000272606",
+          descEn: "Concentrated fish oil: 1,300 mg per clear enteric softgel with 450 mg EPA and 300 mg DHA, and no fishy aftertaste. Supports cardiovascular health, cognitive health and brain function.",
+          descFa: "روغن ماهی غلیظ: ۱۳۰۰ میلی‌گرم در هر سافت‌ژل شفاف روده‌ای، با ۴۵۰ میلی‌گرم EPA و ۳۰۰ میلی‌گرم DHA و بدون پس‌طعم ماهی. از سلامت قلب و عروق، عملکرد شناختی و مغز پشتیبانی می‌کند." },
+        { id: "ks-fishoil-blend", cat: "omega", brand: "Kirkland Signature", en: "100% Wild Fish Oil Blend", fa: "روغن ماهی وحشی کرکلند", size: "400 softgels", item: "6612410", npn: "80105450", url: "https://www.costco.ca/p/-/kirkland-signature-100-wild-fish-oil-blend-400-softgels/4000035683?country=CA",
+          descEn: "1,000 mg of 100% wild fish oil per clear enteric softgel, providing 180 mg EPA and 120 mg DHA — a source of omega-3 fatty acids for heart and brain health.",
+          descFa: "۱۰۰۰ میلی‌گرم روغن ماهی صددرصد وحشی در هر سافت‌ژل، با ۱۸۰ میلی‌گرم EPA و ۱۲۰ میلی‌گرم DHA؛ منبعی از اسیدهای چرب امگا ۳ برای سلامت قلب و مغز." },
+        { id: "ks-salmon", cat: "omega", brand: "Kirkland Signature", en: "100% Pure Alaskan Salmon Oil", fa: "روغن سالمون آلاسکا کرکلند", size: "320 softgels", item: "421244", npn: null, url: null,
+          descEn: "100% pure Alaskan salmon oil — a natural whole-food source of omega-3 EPA and DHA for heart and brain health.",
+          descFa: "روغن خالص صددرصد سالمون آلاسکا؛ منبع طبیعی امگا ۳ (EPA و DHA) برای سلامت قلب و مغز." },
+        { id: "web-omega-triple", cat: "omega", brand: "Webber Naturals", en: "Triple Strength Omega-3", fa: "امگا ۳ سه‌برابر قوی وبر نچرالز", size: "", npn: null, url: null,
+          descEn: "Triple-strength omega-3 — a high dose of EPA and DHA in each softgel, so fewer softgels per day for heart and brain support.",
+          descFa: "امگا ۳ با قدرت سه‌برابر؛ دوز بالای EPA و DHA در هر سافت‌ژل، یعنی تعداد کمتر در روز برای پشتیبانی از قلب و مغز." },
+        { id: "web-omega-algae", cat: "omega", brand: "Webber Naturals", en: "Plant-Based Omega-3 (Algae Oil)", fa: "امگا ۳ گیاهی (روغن جلبک) وبر نچرالز", size: "120 softgels", item: "2336987", npn: null, url: null,
+          descEn: "Omega-3 from algae oil instead of fish — a plant-based, vegan-friendly source of EPA and DHA.",
+          descFa: "امگا ۳ از روغن جلبک به‌جای ماهی؛ منبعی گیاهی و مناسب وگان‌ها برای EPA و DHA." },
+        { id: "ks-coq10-100", cat: "omega", brand: "Kirkland Signature", en: "Coenzyme Q10 100 mg", fa: "کوآنزیم Q10 کرکلند ۱۰۰ میلی‌گرم", size: "300 softgels", item: "1751145", npn: null, url: null,
+          descEn: "Coenzyme Q10 100 mg — an antioxidant that supports cardiovascular health and helps the body's cells produce energy.",
+          descFa: "کوآنزیم Q10 با دوز ۱۰۰ میلی‌گرم؛ آنتی‌اکسیدانی که از سلامت قلب و عروق پشتیبانی می‌کند و به تولید انرژی در سلول‌ها کمک می‌کند." },
+        { id: "ks-coq10-200", cat: "omega", brand: "Kirkland Signature", en: "Coenzyme Q10 200 mg", fa: "کوآنزیم Q10 کرکلند ۲۰۰ میلی‌گرم", size: "225 softgels", item: "1761155", npn: null, url: "https://www.costco.ca/p/-/kirkland-signature-coenzyme-q10-200-mg-225-glules-entriques-transparentes/100713368",
+          descEn: "Extra-strength CoQ10 200 mg in clear enteric softgels — antioxidant support for cardiovascular health and cellular energy.",
+          descFa: "کوآنزیم Q10 قوی ۲۰۰ میلی‌گرم در سافت‌ژل‌های شفاف روده‌ای؛ پشتیبانی آنتی‌اکسیدانی از سلامت قلب و انرژی سلولی." },
+        { id: "qunol-coq10", cat: "omega", brand: "Qunol", en: "Mega CoQ10 100 mg", fa: "کوآنزیم Q10 مگا کیونول ۱۰۰ میلی‌گرم", size: "", npn: null, url: null,
+          descEn: "Qunol Mega CoQ10 100 mg — supports heart health and healthy blood pressure already within the normal range.",
+          descFa: "کوآنزیم Q10 مگا کیونول ۱۰۰ میلی‌گرم؛ از سلامت قلب و فشار خون سالم پشتیبانی می‌کند." },
+
+        /* ---- Bones & joints ---- */
+        { id: "ks-gluc-sulfate", cat: "joint", brand: "Kirkland Signature", en: "Glucosamine Sulfate", fa: "گلوکزامین سولفات کرکلند", size: "", npn: null, url: null,
+          descEn: "Glucosamine sulfate — helps relieve joint pain associated with osteoarthritis and protect against cartilage deterioration.",
+          descFa: "گلوکزامین سولفات؛ به کاهش درد مفاصل ناشی از آرتروز و محافظت از غضروف‌ها کمک می‌کند." },
+        { id: "ks-gluc-chon", cat: "joint", brand: "Kirkland Signature", en: "Glucosamine, Chondroitin & MSM", fa: "گلوکزامین، کندرویتین و MSM کرکلند", size: "300 tablets", npn: "80097373", url: "https://www.costco.ca/p/-/kirkland-signature-glucosamine,-chondroitin-&-msm-500400400-mg,-300-tablets/100000746?langId=-24",
+          descEn: "Each tablet provides 500 mg glucosamine sulfate, 400 mg chondroitin sulfate and 400 mg MSM — a three-way formula to help relieve joint pain associated with osteoarthritis.",
+          descFa: "هر قرص شامل ۵۰۰ میلی‌گرم گلوکزامین سولفات، ۴۰۰ میلی‌گرم کندرویتین سولفات و ۴۰۰ میلی‌گرم MSM است؛ فرمول سه‌گانه برای کمک به کاهش درد مفاصل ناشی از آرتروز." },
+        { id: "web-gluc-chon", cat: "joint", brand: "Webber Naturals", en: "Glucosamine Chondroitin with Vitamin D", fa: "گلوکزامین کندرویتین + ویتامین D وبر نچرالز", size: "300 caplets", npn: null, url: null,
+          descEn: "Glucosamine and chondroitin for joints, plus vitamin D for bones — joint and bone support in one caplet.",
+          descFa: "گلوکزامین و کندرویتین برای مفاصل، همراه با ویتامین D برای استخوان؛ پشتیبانی هم‌زمان از مفصل و استخوان در یک قرص." },
+        { id: "web-osteo", cat: "joint", brand: "Webber Naturals", en: "Osteo Joint Ease with InflamEase", fa: "استئو جوینت ایز وبر نچرالز (مفاصل)", size: "180 caplets", npn: null, url: null,
+          descEn: "Osteo Joint Ease with InflamEase — a glucosamine formula that helps relieve joint pain and stiffness and protect cartilage.",
+          descFa: "استئو جوینت ایز همراه با اینفلام‌ایز؛ فرمول گلوکزامین برای کمک به کاهش درد و خشکی مفاصل و محافظت از غضروف." },
+        { id: "yout-turmeric", cat: "joint", brand: "Youtheory", en: "Turmeric", fa: "زردچوبه (کورکومین) یوثئوری", size: "", npn: null, url: null,
+          descEn: "Turmeric extract (curcumin) — a traditional herbal antioxidant used to support joint comfort and mobility.",
+          descFa: "عصاره زردچوبه (کورکومین)؛ آنتی‌اکسیدان گیاهی سنتی برای پشتیبانی از راحتی و تحرک مفاصل." },
+        { id: "web-turmeric", cat: "joint", brand: "Webber Naturals", en: "Turmeric Curcuma", fa: "زردچوبه وبر نچرالز", size: "", npn: null, url: null,
+          descEn: "Turmeric (curcuma) from Webber Naturals — used in herbal medicine to help relieve joint pain and support digestion.",
+          descFa: "زردچوبه وبر نچرالز؛ در طب گیاهی برای کمک به کاهش درد مفاصل و پشتیبانی از گوارش استفاده می‌شود." },
+
+        /* ---- Digestive ---- */
+        { id: "align", cat: "digest", brand: "Align", en: "Align Probiotic Digestive Support", fa: "پروبیوتیک الاین (گوارش)", size: "77 capsules", npn: null, url: null,
+          descEn: "Daily probiotic with Bifidobacterium 35624 — helps support digestive health and relieve symptoms of irritable bowel syndrome (IBS) such as bloating and gas.",
+          descFa: "پروبیوتیک روزانه با سویه بیفیدوباکتریوم 35624؛ از سلامت گوارش پشتیبانی می‌کند و به کاهش علائم سندرم روده تحریک‌پذیر (IBS) مثل نفخ کمک می‌کند." },
+        { id: "metamucil-caps", cat: "digest", brand: "Metamucil", en: "Metamucil 3-in-1 Fibre Capsules", fa: "کپسول فیبر متاموسیل", size: "300 capsules", npn: null, url: null, cert: "din",
+          descEn: "Psyllium fibre in capsule form — supports digestive regularity, helps lower cholesterol and helps control appetite as part of a healthy routine.",
+          descFa: "فیبر پسیلیوم به‌صورت کپسول؛ از نظم گوارش پشتیبانی می‌کند، به کاهش کلسترول کمک می‌کند و در کنترل اشتها مؤثر است." },
+        { id: "metamucil-gummies", cat: "digest", brand: "Metamucil", en: "Metamucil Fibre Gummies", fa: "پاستیل فیبر متاموسیل", size: "", npn: null, url: null, cert: "din",
+          descEn: "Daily fibre in a tasty gummy — an easy way to add psyllium fibre for digestive regularity.",
+          descFa: "فیبر روزانه در قالب پاستیل خوشمزه؛ راهی آسان برای افزودن فیبر پسیلیوم و نظم گوارش." },
+
+        /* ---- OTC ---- */
+        { id: "tylenol-es", cat: "otc", brand: "Tylenol", en: "Tylenol Extra Strength (Acetaminophen 500 mg)", fa: "تایلنول اکسترا (استامینوفن ۵۰۰)", size: "", npn: null, url: null, cert: "din",
+          descEn: "Extra-strength acetaminophen 500 mg — trusted relief for headaches, muscle aches, backache and fever.",
+          descFa: "استامینوفن قوی ۵۰۰ میلی‌گرم؛ تسکین قابل اعتماد برای سردرد، درد عضلات و کمر و تب." },
+        { id: "ks-allergy", cat: "otc", brand: "Kirkland Signature", en: "Allergy Relief (Cetirizine)", fa: "ضدآلرژی کرکلند (ستیریزین)", size: "200 tablets", item: "987271", npn: null, url: null, cert: "din",
+          descEn: "Cetirizine 10 mg antihistamine — 24-hour relief from seasonal allergy symptoms: sneezing, runny nose and itchy, watery eyes.",
+          descFa: "آنتی‌هیستامین ستیریزین ۱۰ میلی‌گرم؛ تسکین ۲۴ ساعته علائم آلرژی فصلی: عطسه، آبریزش بینی و خارش و اشک چشم." },
+        { id: "emergen-c", cat: "otc", brand: "Emergen-C", en: "Emergen-C Vitamin C 1000 mg Drink Mix", fa: "پودر نوشیدنی ویتامین C امرجن-سی", size: "", npn: null, url: null,
+          descEn: "Fizzy drink mix with 1,000 mg vitamin C plus B vitamins and electrolytes — daily immune and energy support in a glass of water.",
+          descFa: "پودر نوشیدنی جوشان با ۱۰۰۰ میلی‌گرم ویتامین C، ویتامین‌های B و الکترولیت؛ پشتیبانی روزانه از ایمنی و انرژی در یک لیوان آب." },
+        { id: "sambucus", cat: "otc", brand: "Nature's Way", en: "Sambucus Immune Gummies (Elderberry)", fa: "پاستیل ایمنی سامبوکوس (آقطی سیاه)", size: "", npn: null, url: null,
+          descEn: "Black elderberry gummies with vitamin C and zinc — immune support for the whole family during cold season.",
+          descFa: "پاستیل آقطی سیاه (الدر بری) همراه با ویتامین C و زینک؛ پشتیبانی از سیستم ایمنی همه خانواده در فصل سرما." },
+        { id: "salonpas", cat: "otc", brand: "Hisamitsu", en: "Salonpas Pain Relieving Patches", fa: "چسب ضد درد سالونپاس", size: "140 patches", npn: null, url: null, cert: "din",
+          descEn: "Medicated pain-relieving patches applied right where it hurts — for backache, muscle and joint pain and strains.",
+          descFa: "چسب‌های دارویی ضد درد که مستقیم روی محل درد چسبانده می‌شوند؛ برای کمردرد، درد عضلات و مفاصل و کشیدگی." },
+        { id: "kalaya", cat: "otc", brand: "Kalaya", en: "Kalaya Extra Strength Pain Relief Cream with Arnica", fa: "کرم ضد درد قوی کالایا با آرنیکا", size: "", npn: null, url: null, cert: "din",
+          descEn: "Extra-strength pain relief cream with arnica, made in Canada — rubbed into muscles and joints for fast temporary relief of aches and pains.",
+          descFa: "کرم ضد درد قوی با آرنیکا، ساخت کانادا؛ روی عضلات و مفاصل مالیده می‌شود و تسکین موقت و سریع درد می‌دهد." },
+        { id: "hydrasense", cat: "otc", brand: "hydraSense", en: "hydraSense Eye Drops", fa: "قطره چشم هیدراسنس", size: "", npn: null, url: null, cert: "din",
+          descEn: "Lubricating eye drops that relieve dry, irritated eyes — gentle enough for everyday use and for contact-lens wearers.",
+          descFa: "قطره روان‌کننده چشم برای رفع خشکی و سوزش چشم؛ ملایم و مناسب استفاده روزانه و لنزهای تماسی." },
+
+        /* ---- Sleep, beauty & eyes ---- */
+        { id: "nb-melatonin", cat: "beauty", brand: "Nature's Bounty", en: "Melatonin", fa: "ملاتونین نیچرز بونتی (خواب)", size: "", npn: null, url: null,
+          descEn: "Melatonin — helps you fall asleep faster and improve total sleep quality, and helps reset the body's sleep-wake cycle (useful for jet lag).",
+          descFa: "ملاتونین؛ کمک می‌کند سریع‌تر به خواب بروید و کیفیت خواب بهتر شود و چرخه خواب‌وبیداری بدن تنظیم شود (مفید برای جت‌لگ)." },
+        { id: "yout-collagen", cat: "beauty", brand: "Youtheory", en: "Collagen 6,000 mg", fa: "کلاژن یوثئوری ۶۰۰۰ میلی‌گرم", size: "", npn: null, url: null,
+          descEn: "Hydrolyzed collagen peptides 6,000 mg with vitamin C — supports skin elasticity, healthy hair and nails, and joint comfort.",
+          descFa: "پپتیدهای کلاژن هیدرولیزشده ۶۰۰۰ میلی‌گرم همراه با ویتامین C؛ از کشسانی پوست، مو و ناخن سالم و راحتی مفاصل پشتیبانی می‌کند." },
+        { id: "nb-hsn", cat: "beauty", brand: "Nature's Bounty", en: "Hair, Skin & Nails Gummies", fa: "پاستیل مو، پوست و ناخن نیچرز بونتی", size: "", npn: null, url: null,
+          descEn: "Beauty gummies with biotin and collagen — support lustrous hair, healthy skin and strong nails, in a tasty chewable form.",
+          descFa: "پاستیل زیبایی با بیوتین و کلاژن؛ برای موی درخشان، پوست سالم و ناخن‌های محکم، در قالب جویدنی خوشمزه." },
+        { id: "web-collagen30", cat: "beauty", brand: "Webber Naturals", en: "Collagen30 with Ceramides", fa: "کلاژن ۳۰ وبر نچرالز با سرامید", size: "", npn: null, url: null,
+          descEn: "Collagen30 bioactive collagen peptides with ceramides — clinically studied to reduce the depth of wrinkles and support skin hydration and elasticity.",
+          descFa: "کلاژن ۳۰ با پپتیدهای فعال کلاژن و سرامید؛ برای کاهش عمق چروک‌ها و پشتیبانی از رطوبت و کشسانی پوست." },
+        { id: "preservision", cat: "beauty", brand: "Bausch + Lomb", en: "PreserVision AREDS 2 Eye Vitamins", fa: "ویتامین چشم پرزرویژن AREDS 2", size: "210 softgels", npn: null, url: null,
+          descEn: "The AREDS 2 formula — lutein, zeaxanthin, zinc and vitamins C and E — developed from the landmark eye-health study to support macular health.",
+          descFa: "فرمول AREDS 2 شامل لوتئین، زاگزانتین، زینک و ویتامین‌های C و E؛ برگرفته از پژوهش بزرگ سلامت چشم، برای پشتیبانی از سلامت ماکولا (لکه زرد چشم)." },
+
+        /* ---- Sports & creatine ---- */
+        { id: "on-creatine", cat: "sport", brand: "Optimum Nutrition", en: "Creatine Monohydrate 600 g", fa: "کراتین مونوهیدرات اپتیموم نوتریشن ۶۰۰ گرم", size: "600 g — 120 servings", npn: null, url: "https://share.google/F4Ybj7fyx0bQl8FKh", cert: "informed",
+          descEn: "The world's best-known creatine: 100% micronized creatine monohydrate, unflavoured, 5 g per serving (120 servings). Supports strength, power and muscle growth when combined with training. Mixes easily into water or a shake.",
+          descFa: "معروف‌ترین کراتین دنیا: کراتین مونوهیدرات میکرونایز صددرصد خالص، بدون طعم، هر پیمانه ۵ گرم (۱۲۰ پیمانه). همراه با تمرین، از قدرت، توان انفجاری و رشد عضله پشتیبانی می‌کند و به‌راحتی در آب یا شیک حل می‌شود." },
+
+        /* ---- Kids & baby ---- */
+        { id: "ks-kids-gummies", cat: "kids", brand: "Kirkland Signature", en: "Children's Multivitamin Gummies", fa: "مولتی‌ویتامین پاستیلی کودکان کرکلند", size: "", npn: null, url: null,
+          descEn: "Chewable gummy multivitamin made for children — key vitamins for growth, immunity and everyday energy, in flavours kids like.",
+          descFa: "مولتی‌ویتامین پاستیلی مخصوص کودکان؛ ویتامین‌های کلیدی برای رشد، ایمنی و انرژی روزانه، با طعم‌هایی که بچه‌ها دوست دارند." },
+        { id: "flintstones", cat: "kids", brand: "Flintstones", en: "Flintstones Complete Children's Multivitamin", fa: "مولتی‌ویتامین کودکان فلینت‌استونز", size: "", npn: null, url: null,
+          descEn: "Canada's classic children's chewable multivitamin — a complete range of vitamins and minerals to support growth and development.",
+          descFa: "مولتی‌ویتامین جویدنی کلاسیک کودکان کانادا؛ مجموعه کاملی از ویتامین‌ها و مواد معدنی برای پشتیبانی از رشد کودک." },
+        { id: "lil-critters", cat: "kids", brand: "L'il Critters", en: "Gummy Vites Children's Multivitamin", fa: "پاستیل ویتامین کودکان لیل کریترز", size: "", npn: null, url: null,
+          descEn: "Gummy Vites — fruit-flavoured gummy bears with the essential vitamins children need every day.",
+          descFa: "پاستیل‌های خرسی با طعم میوه، حاوی ویتامین‌های ضروری روزانه کودکان." },
+        { id: "ironkids", cat: "kids", brand: "IronKids", en: "IronKids Omega-3 Gummies", fa: "پاستیل امگا ۳ کودکان آیرن‌کیدز", size: "200 gummies", item: "441284", npn: null, url: null,
+          descEn: "Omega-3 gummies made for kids — fish-oil EPA and DHA to support brain development, without the fishy taste.",
+          descFa: "پاستیل امگا ۳ مخصوص کودکان؛ EPA و DHA روغن ماهی برای پشتیبانی از رشد مغز، بدون طعم ماهی." },
+        { id: "ks-formula", cat: "kids", brand: "Kirkland Signature", en: "ProCare Infant Formula (0–12 months)", fa: "شیرخشک نوزاد پروکر کرکلند (۰ تا ۱۲ ماه)", size: "1.36 kg", item: "9626920", npn: null, url: "https://www.costco.ca/p/-/kirkland-signature---procare-prparation-pour-nourrissons-en-poudre-sans-ogm-136-kg/4000216043", cert: "formula",
+          descEn: "Milk-based infant formula with iron for babies 0–12 months. Non-GMO, with DHA and dual HMOs to support growth, development and immune health.",
+          descFa: "شیرخشک بر پایه شیر همراه با آهن برای نوزادان ۰ تا ۱۲ ماه. بدون GMO، حاوی DHA و دو نوع HMO برای پشتیبانی از رشد، تکامل و سیستم ایمنی نوزاد." },
+        { id: "ks-formula-sensitive", cat: "kids", brand: "Kirkland Signature", en: "Infant Formula — For Babies Sensitive to Lactose", fa: "شیرخشک نوزاد کرکلند (حساس به لاکتوز)", size: "1.36 kg", item: "6626921", npn: null, url: null, cert: "formula",
+          descEn: "Infant formula specially made for babies sensitive to lactose, for 0–12 months — complete nutrition that is gentler on sensitive tummies.",
+          descFa: "شیرخشک مخصوص نوزادان حساس به لاکتوز، برای ۰ تا ۱۲ ماه؛ تغذیه کامل و ملایم‌تر برای شکم‌های حساس." }
+      ];
+
+      /* =============== State =============== */
+      var lang = "fa";
+      var activeCat = "all";
+      var query = "";
+      var cart = {};        // id -> qty
+      var qtySel = {};      // id -> qty chosen on the card
+      var openDetails = {}; // id -> true
+
+      var $ = function (s) { return document.querySelector(s); };
+      function t(k) { return STR[lang][k]; }
+      function catName(c) { return lang === "fa" ? c.fa : c.en; }
+      function catOf(p) { for (var i = 0; i < CATS.length; i++) if (CATS[i].id === p.cat) return CATS[i]; return CATS[0]; }
+      function prodName(p) { return lang === "fa" ? p.fa : p.en; }
+      function prodAlt(p) { return lang === "fa" ? p.en : p.fa; }
+      function prodDesc(p) { return lang === "fa" ? p.descFa : p.descEn; }
+      function faDigits(s) {
+        if (lang !== "fa") return String(s);
+        return String(s).replace(/[0-9]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; });
+      }
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      function byId(id) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].id === id) return PRODUCTS[i]; return null; }
+      function cartCount() { var n = 0; for (var k in cart) n += cart[k]; return n; }
+
+      var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M9 11.5l2 2 4-4.5"/></svg>';
+      var ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+      var ICON_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>';
+      var ICON_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>';
+
+      /* =============== Rendering =============== */
+      function certHtml(p) {
+        var out = "";
+        if (p.cert === "formula") {
+          out += '<div class="cert ok">' + ICON_SHIELD + '<span><b>Health Canada</b> — ' + esc(t("formulaCert").replace(/^Health Canada — /, "")) + '</span></div>';
+        } else if (p.npn) {
+          out += '<div class="cert ok">' + ICON_SHIELD + '<span><b>' + esc(t("npnOk")) + ':</b> <span class="npn-num">NPN ' + p.npn + '</span></span></div>';
+        } else if (p.cert === "din") {
+          out += '<div class="cert pending">' + ICON_CLOCK + '<span>' + esc(t("dinPending")) + '</span></div>';
+        } else {
+          out += '<div class="cert pending">' + ICON_CLOCK + '<span>' + esc(t("npnPending")) + '</span></div>';
+        }
+        if (p.cert === "informed") {
+          out += '<div class="cert ok">' + ICON_SHIELD + '<span>' + esc(t("informedChoice")) + '</span></div>';
+          out += '<div class="cert pending">' + ICON_CLOCK + '<span>' + esc(t("npnPending")) + '</span></div>';
+        }
+        return out;
+      }
+
+      function sourceHtml(p) {
+        if (p.url) {
+          return '<div class="source-line">' + ICON_LINK + '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(t("sourceLink")) + ' — Costco.ca</a></div>';
+        }
+        return '<div class="source-line">' + ICON_LINK + '<span class="source-pending">' + esc(t("sourcePending")) + '</span></div>';
+      }
+
+      function cardHtml(p) {
+        var q = qtySel[p.id] || 1;
+        var open = openDetails[p.id] ? " open" : "";
+        var exp = openDetails[p.id] ? "true" : "false";
+        var sizeLine = p.size ? '<div class="size">' + esc(t("sizeWord")) + ' <b>' + esc(p.size) + '</b>' + (p.item ? ' · Item ' + p.item : '') + '</div>' : (p.item ? '<div class="size">Item ' + p.item + '</div>' : '');
+        return '' +
+        '<article class="card" data-id="' + p.id + '">' +
+          '<div class="card-top"><span class="brand-tag">' + esc(p.brand) + '</span><span class="cat-tag">' + esc(catName(catOf(p))) + '</span></div>' +
+          '<h3>' + esc(prodName(p)) + '</h3>' +
+          '<div class="alt-name">' + esc(prodAlt(p)) + '</div>' +
+          sizeLine +
+          '<div class="price-row"><span class="price-label">' + esc(t("price")) + '</span><span class="price-blank" aria-hidden="true"></span><span class="price-unit">' + esc(t("toman")) + '</span></div>' +
+          '<div class="add-row">' +
+            '<div class="qty" role="group" aria-label="Quantity">' +
+              '<button type="button" data-act="minus" data-id="' + p.id + '" aria-label="−">−</button>' +
+              '<output id="qty-' + p.id + '">' + faDigits(q) + '</output>' +
+              '<button type="button" data-act="plus" data-id="' + p.id + '" aria-label="+">+</button>' +
+            '</div>' +
+            '<button type="button" class="add-btn" data-act="add" data-id="' + p.id + '">' + esc(t("add")) + '</button>' +
+          '</div>' +
+          '<button type="button" class="details-btn" data-act="details" data-id="' + p.id + '" aria-expanded="' + exp + '">' + ICON_INFO + '<span>' + esc(t("detailsBtn")) + '</span>' +
+            '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>' +
+          '</button>' +
+          '<div class="details-panel' + open + '" id="panel-' + p.id + '">' +
+            '<h4>' + esc(t("descHead")) + '</h4>' +
+            '<p class="desc">' + esc(prodDesc(p)) + '</p>' +
+            '<h4>' + esc(t("certHead")) + '</h4>' +
+            '<div class="cert-list">' + certHtml(p) + '</div>' +
+            '<h4>' + esc(t("sourceHead")) + '</h4>' +
+            sourceHtml(p) +
+          '</div>' +
+        '</article>';
+      }
+
+      function matches(p) {
+        if (activeCat !== "all" && p.cat !== activeCat) return false;
+        if (!query) return true;
+        var q = query.toLowerCase();
+        return (p.en + " " + p.fa + " " + p.brand).toLowerCase().indexOf(q) !== -1;
+      }
+
+      function renderChips() {
+        var html = '<button type="button" class="chip" data-cat="all" aria-pressed="' + (activeCat === "all") + '">' + esc(t("all")) + ' <span class="n">' + faDigits(PRODUCTS.length) + '</span></button>';
+        CATS.forEach(function (c) {
+          var n = PRODUCTS.filter(function (p) { return p.cat === c.id; }).length;
+          html += '<button type="button" class="chip" data-cat="' + c.id + '" aria-pressed="' + (activeCat === c.id) + '">' + esc(catName(c)) + ' <span class="n">' + faDigits(n) + '</span></button>';
+        });
+        $("#chips").innerHTML = html;
+      }
+
+      function renderGrid() {
+        var items = PRODUCTS.filter(matches);
+        $("#grid").innerHTML = items.length ? items.map(cardHtml).join("") : '<p class="empty-msg">' + esc(t("empty")) + '</p>';
+      }
+
+      function renderCart() {
+        $("#cart-count").textContent = faDigits(cartCount());
+        var box = $("#cart-items");
+        var ids = Object.keys(cart);
+        if (!ids.length) {
+          box.innerHTML = '<div class="cart-empty">' + esc(t("cartEmpty")) + '</div>';
+          return;
+        }
+        box.innerHTML = ids.map(function (id) {
+          var p = byId(id);
+          return '<div class="cart-item">' +
+            '<div class="nm">' + esc(prodName(p)) + '<small>' + esc(p.brand) + (p.size ? ' · ' + esc(p.size) : '') + '</small></div>' +
+            '<div class="qty" role="group" aria-label="Quantity">' +
+              '<button type="button" data-act="cminus" data-id="' + id + '" aria-label="−">−</button>' +
+              '<output>' + faDigits(cart[id]) + '</output>' +
+              '<button type="button" data-act="cplus" data-id="' + id + '" aria-label="+">+</button>' +
+            '</div>' +
+            '<button type="button" class="rm-btn" data-act="rm" data-id="' + id + '">' + esc(t("remove")) + '</button>' +
+          '</div>';
+        }).join("");
+      }
+
+      function renderAll() { renderChips(); renderGrid(); renderCart(); }
+
+      /* =============== Language =============== */
+      function applyLang() {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+        $("#lang-fa").setAttribute("aria-pressed", lang === "fa" ? "true" : "false");
+        $("#lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (STR[lang][k] != null) el.innerHTML = STR[lang][k];
+        });
+        document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n-ph");
+          if (STR[lang][k] != null) el.setAttribute("placeholder", STR[lang][k]);
+        });
+        document.querySelectorAll("option[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (STR[lang][k] != null) el.textContent = STR[lang][k];
+        });
+        // step numbers follow the language's digits
+        document.querySelectorAll(".step-num").forEach(function (el, i) { el.textContent = faDigits(i + 1); });
+        renderAll();
+      }
+
+      /* =============== Order =============== */
+      function orderText() {
+        var lines = [];
+        lines.push(t("mailItems"));
+        Object.keys(cart).forEach(function (id, i) {
+          var p = byId(id);
+          lines.push((i + 1) + ". " + p.brand + " — " + p.en + " / " + p.fa + (p.size ? " (" + p.size + ")" : "") + " × " + cart[id]);
+        });
+        lines.push("");
+        lines.push(t("mailName") + " " + $("#f-name").value.trim());
+        lines.push(t("mailPhone") + " " + $("#f-phone").value.trim());
+        lines.push(t("mailCountry") + " " + t("countryNames")[$("#f-country").value]);
+        var city = $("#f-city").value.trim();
+        if (city) lines.push(t("mailCity") + " " + city);
+        var note = $("#f-note").value.trim();
+        if (note) lines.push(t("mailNote") + " " + note);
+        return lines.join("\n");
+      }
+
+      function validate() {
+        var err = $("#form-error");
+        if (!Object.keys(cart).length) { err.textContent = t("errEmpty"); err.style.display = "block"; return false; }
+        if (!$("#f-name").value.trim() || !$("#f-phone").value.trim()) { err.textContent = t("errFields"); err.style.display = "block"; return false; }
+        err.style.display = "none";
+        return true;
+      }
+
+      var toastTimer = null;
+      function toast(msg) {
+        var el = $("#toast");
+        el.textContent = msg;
+        el.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { el.classList.remove("show"); }, 2400);
+      }
+
+      /* =============== Events =============== */
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-act]");
+        if (btn) {
+          var id = btn.getAttribute("data-id");
+          var act = btn.getAttribute("data-act");
+          if (act === "plus") { qtySel[id] = Math.min(99, (qtySel[id] || 1) + 1); var o = $("#qty-" + id); if (o) o.textContent = faDigits(qtySel[id]); }
+          if (act === "minus") { qtySel[id] = Math.max(1, (qtySel[id] || 1) - 1); var o2 = $("#qty-" + id); if (o2) o2.textContent = faDigits(qtySel[id]); }
+          if (act === "add") {
+            cart[id] = (cart[id] || 0) + (qtySel[id] || 1);
+            renderCart();
+            btn.classList.add("added");
+            var old = btn.textContent;
+            btn.textContent = t("added");
+            setTimeout(function () { btn.classList.remove("added"); btn.textContent = old; }, 1200);
+          }
+          if (act === "details") {
+            openDetails[id] = !openDetails[id];
+            btn.setAttribute("aria-expanded", openDetails[id] ? "true" : "false");
+            var panel = $("#panel-" + id);
+            if (panel) panel.classList.toggle("open", !!openDetails[id]);
+          }
+          if (act === "cplus") { cart[id] = Math.min(99, cart[id] + 1); renderCart(); }
+          if (act === "cminus") { cart[id] = cart[id] - 1; if (cart[id] <= 0) delete cart[id]; renderCart(); }
+          if (act === "rm") { delete cart[id]; renderCart(); }
+          return;
+        }
+        var chip = e.target.closest("[data-cat]");
+        if (chip) { activeCat = chip.getAttribute("data-cat"); renderChips(); renderGrid(); }
+      });
+
+      $("#search").addEventListener("input", function (e) { query = e.target.value.trim(); renderGrid(); });
+      $("#lang-fa").addEventListener("click", function () { if (lang !== "fa") { lang = "fa"; applyLang(); } });
+      $("#lang-en").addEventListener("click", function () { if (lang !== "en") { lang = "en"; applyLang(); } });
+      $("#cart-jump").addEventListener("click", function () { $("#order").scrollIntoView({ behavior: "smooth", block: "start" }); });
+
+      $("#submit-order").addEventListener("click", function () {
+        if (!validate()) { $("#order").scrollIntoView({ behavior: "smooth" }); return; }
+        var href = "mailto:info@maplevit.com?subject=" + encodeURIComponent(t("mailSubject")) + "&body=" + encodeURIComponent(orderText());
+        var a = document.createElement("a");
+        a.href = href;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+
+      $("#copy-order").addEventListener("click", function () {
+        if (!validate()) { $("#order").scrollIntoView({ behavior: "smooth" }); return; }
+        var text = orderText();
+        function done(ok) { toast(ok ? t("copied") : t("copyFail")); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = false;
+          try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+          document.body.removeChild(ta);
+          done(ok);
+        }
+      });
+
+      applyLang();
+    </script>
+  </body>
+</html>
