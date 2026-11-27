@@ -1341,30 +1341,11 @@
         var im = e.target.closest ? e.target.closest(".pimg") : null;
         if (im) openLightbox(im.getAttribute("src"), im.getAttribute("alt") || "");
       });
-      $("#lb-close").addEventListener("click", closeLightbox);
-      $("#lb-zoom-in").addEventListener("click", function () { lbScale = Math.min(3, lbScale + 0.5); lbApply(); });
-      $("#lb-zoom-out").addEventListener("click", function () { lbScale = Math.max(1, lbScale - 0.5); if (lbScale === 1) { lbX = 0; lbY = 0; } lbApply(); });
-      $("#lightbox").addEventListener("click", function (e) { if (e.target.id === "lightbox" || e.target.id === "lb-stage") closeLightbox(); });
+      function lbClose() { closeLightbox(); }
+      function lbZoomIn() { lbScale = Math.min(3, lbScale + 0.5); lbApply(); }
+      function lbZoomOut() { lbScale = Math.max(1, lbScale - 0.5); if (lbScale === 1) { lbX = 0; lbY = 0; } lbApply(); }
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("#lightbox").hidden) closeLightbox(); });
-      (function () {
-        var stage = $("#lb-stage"), img = $("#lb-img");
-        stage.addEventListener("pointerdown", function (e) {
-          if (lbScale <= 1) return;
-          lbDrag = { x: e.clientX - lbX, y: e.clientY - lbY };
-          stage.setPointerCapture(e.pointerId);
-        });
-        stage.addEventListener("pointermove", function (e) {
-          if (!lbDrag) return;
-          lbX = e.clientX - lbDrag.x; lbY = e.clientY - lbDrag.y; lbApply();
-        });
-        stage.addEventListener("pointerup", function () { lbDrag = null; });
-        stage.addEventListener("pointercancel", function () { lbDrag = null; });
-        img.addEventListener("dblclick", function () {
-          lbScale = lbScale > 1 ? 1 : 2;
-          if (lbScale === 1) { lbX = 0; lbY = 0; }
-          lbApply();
-        });
-      })();
+      /* Lightbox button/backdrop/pan wiring lives in the script after the lightbox markup (below), so the elements exist when it runs. */
 
       /* ---------- Home button: full reset + back to the very top ---------- */
       function goHome(e) {
@@ -1401,10 +1382,36 @@
       <div class="lb-stage" id="lb-stage"><img id="lb-img" alt="" draggable="false" /></div>
       <div class="lb-caption" id="lb-caption"></div>
       <div class="lb-controls">
-        <button type="button" class="lb-btn" id="lb-zoom-out" aria-label="Zoom out">−</button>
-        <button type="button" class="lb-btn" id="lb-zoom-in" aria-label="Zoom in">+</button>
-        <button type="button" class="lb-btn close" id="lb-close" aria-label="Close">×</button>
+        <button type="button" class="lb-btn" id="lb-zoom-out" aria-label="Zoom out" onclick="lbZoomOut()">−</button>
+        <button type="button" class="lb-btn" id="lb-zoom-in" aria-label="Zoom in" onclick="lbZoomIn()">+</button>
+        <button type="button" class="lb-btn close" id="lb-close" aria-label="Close" onclick="lbClose()">×</button>
       </div>
     </div>
+    <script>
+      /* Lightbox wiring — runs after the lightbox markup, so every element exists here */
+      document.getElementById("lb-close").addEventListener("click", lbClose);
+      document.getElementById("lb-zoom-in").addEventListener("click", lbZoomIn);
+      document.getElementById("lb-zoom-out").addEventListener("click", lbZoomOut);
+      document.getElementById("lightbox").addEventListener("click", function (e) { if (e.target.id === "lightbox" || e.target.id === "lb-stage") lbClose(); });
+      (function () {
+        var stage = document.getElementById("lb-stage"), img = document.getElementById("lb-img");
+        stage.addEventListener("pointerdown", function (e) {
+          if (lbScale <= 1) return;
+          lbDrag = { x: e.clientX - lbX, y: e.clientY - lbY };
+          stage.setPointerCapture(e.pointerId);
+        });
+        stage.addEventListener("pointermove", function (e) {
+          if (!lbDrag) return;
+          lbX = e.clientX - lbDrag.x; lbY = e.clientY - lbDrag.y; lbApply();
+        });
+        stage.addEventListener("pointerup", function () { lbDrag = null; });
+        stage.addEventListener("pointercancel", function () { lbDrag = null; });
+        img.addEventListener("dblclick", function () {
+          lbScale = lbScale > 1 ? 1 : 2;
+          if (lbScale === 1) { lbX = 0; lbY = 0; }
+          lbApply();
+        });
+      })();
+    </script>
   </body>
 </html>
